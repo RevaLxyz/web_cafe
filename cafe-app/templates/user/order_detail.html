@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}Detail Pesanan{% endblock %}
+{% block content %}
+<div class="container py-4" style="max-width: 600px;">
+  <h2 class="section-title">Pesanan {{ order.order_code }}</h2>
+
+  {% set steps = ['menunggu', 'diproses', 'sedang_dibuat', 'siap_diambil', 'selesai'] %}
+  {% if order.status != 'dibatalkan' %}
+  <div class="d-flex justify-content-between mb-4 text-center small">
+    {% for s in steps %}
+    <div class="flex-fill">
+      <div class="rounded-circle mx-auto mb-1 {{ 'bg-success text-white' if steps.index(s) <= steps.index(order.status) else 'bg-light' }}" style="width:32px;height:32px;line-height:32px;">{{ loop.index }}</div>
+      {{ s | replace('_',' ') | title }}
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <div class="alert alert-danger">Pesanan ini telah dibatalkan.</div>
+  {% endif %}
+
+  <div class="card p-3 mb-3">
+    <ul class="list-group list-group-flush">
+      {% for item in order.items %}
+      <li class="list-group-item d-flex justify-content-between">
+        {{ item.product.name }} x{{ item.quantity }}
+        <span>{{ item.subtotal | rupiah }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="d-flex justify-content-between mt-2">
+      <strong>Total</strong><strong>{{ order.total_price | rupiah }}</strong>
+    </div>
+    <p class="text-muted mt-2 mb-0">Pembayaran: {{ order.payment_method }}</p>
+    {% if order.notes %}<p class="text-muted mb-0">Catatan: {{ order.notes }}</p>{% endif %}
+  </div>
+
+  {% if order.status in ['menunggu', 'diproses'] %}
+  <form method="POST" action="{{ url_for('order.cancel', order_code=order.order_code) }}"
+        onsubmit="return confirm('Batalkan pesanan ini?')">
+    <button type="submit" class="btn btn-outline-danger w-100">Batalkan Pesanan</button>
+  </form>
+  {% endif %}
+</div>
+{% endblock %}

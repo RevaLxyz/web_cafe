@@ -1,0 +1,146 @@
+:root {
+  --cafe-brown: #3d2b1f;
+  --cafe-brown-dark: #241811;
+  --cafe-cream: #fbf3e7;
+  --cafe-gold: #c9a14a;
+  --cafe-gold-dark: #a9803a;
+  --cafe-orange: #d9531e;
+  --cafe-olive: #a89548;
+}
+
+body {
+  background-color: var(--cafe-cream);
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  color: #2c2118;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand {
+  font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+  background-color: var(--cafe-brown-dark) !important;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.navbar-brand img {
+  border-radius: 50%;
+}
+
+.nav-link {
+  font-weight: 500;
+}
+
+.hero-section {
+  background: radial-gradient(circle at top right, var(--cafe-olive) 0%, var(--cafe-brown) 45%, var(--cafe-brown-dark) 100%);
+  color: var(--cafe-cream);
+  padding: 110px 0 90px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section h1 {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hero-section .lead {
+  color: #e8d9c4;
+}
+
+.btn-cafe {
+  background: linear-gradient(135deg, var(--cafe-gold), var(--cafe-gold-dark));
+  color: #2c2118;
+  border: none;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(169, 128, 58, 0.35);
+  transition: all 0.2s ease;
+}
+
+.btn-cafe:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(169, 128, 58, 0.45);
+  color: #fff;
+}
+
+.card-product {
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(61, 43, 31, 0.1);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  overflow: hidden;
+}
+
+.card-product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(61, 43, 31, 0.18);
+}
+
+.card {
+  border: none;
+  border-radius: 14px;
+  box-shadow: 0 3px 12px rgba(61, 43, 31, 0.08);
+}
+
+.section-title {
+  font-weight: 700;
+  color: var(--cafe-brown);
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: var(--cafe-gold);
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.text-center.section-title::after {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.badge.bg-secondary {
+  background-color: var(--cafe-olive) !important;
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--cafe-gold);
+  box-shadow: 0 0 0 0.2rem rgba(201, 161, 74, 0.25);
+}
+
+.password-field-wrapper {
+  position: relative;
+}
+
+.password-toggle-btn {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #8a7a68;
+  background: none;
+  border: none;
+  font-size: 0.95rem;
+}
+
+.password-toggle-btn:hover {
+  color: var(--cafe-gold-dark);
+}
+
+footer {
+  background-color: var(--cafe-brown-dark) !important;
+}
+
+.step-circle {
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  border-radius: 50%;
+  font-weight: 600;
+}
